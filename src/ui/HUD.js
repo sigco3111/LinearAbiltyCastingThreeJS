@@ -25,30 +25,30 @@ export class HUD {
 
     root.innerHTML = `
       <div class="hud__panel hud__title">
-        Elemental Sandbox
-        <span data-blurb>Press Q, E, R, F, V or X, aim, click to cast.</span>
+        엘리멘탈 샌드박스
+        <span data-blurb>Q·E·R·F·V·X 중 하나를 누르고 조준한 뒤 클릭해 시전하세요.</span>
       </div>
 
       <div class="hud__panel hud__stats">
         <div>FPS <b data-stat="fps">—</b></div>
-        <div>Particles <b data-stat="particles">0</b></div>
-        <div>Instances <b data-stat="spikes">0</b></div>
-        <div>Draw calls <b data-stat="calls">0</b></div>
+        <div>파티클 <b data-stat="particles">0</b></div>
+        <div>인스턴스 <b data-stat="spikes">0</b></div>
+        <div>드로콜 <b data-stat="calls">0</b></div>
       </div>
 
       <div class="hud__panel hud__help">
-        <div><strong>Q</strong> — Frost Lance &nbsp; <strong>E</strong> — Storm Lance</div>
-        <div><strong>R</strong> — Cinder Fall &nbsp; <strong>F</strong> — Nova Beam</div>
-        <div><strong>V</strong> — Voltaic Snare &nbsp; <strong>X</strong> — Glacial Crown</div>
-        <div class="hud__help-note">V and X are far casts — aimed with a circle, not an arrow.</div>
-        <div><strong>Move</strong> — aim &nbsp; <strong>Left click</strong> — cast</div>
-        <div><strong>Esc / right click</strong> — cancel the cast</div>
-        <div><strong>Right drag</strong> — orbit &nbsp; <strong>Scroll</strong> — zoom</div>
+        <div><strong>Q</strong> — 프로스트 랜스 &nbsp; <strong>E</strong> — 스톰 랜스</div>
+        <div><strong>R</strong> — 신더 폴 &nbsp; <strong>F</strong> — 노바 빔</div>
+        <div><strong>V</strong> — 볼타이크 스네어 &nbsp; <strong>X</strong> — 글레이셜 크라운</div>
+        <div class="hud__help-note">V와 X는 원거리 시전 — 화살이 아니라 원으로 조준합니다.</div>
+        <div><strong>이동</strong> — 조준 &nbsp; <strong>좌클릭</strong> — 시전</div>
+        <div><strong>Esc / 우클릭</strong> — 시전 취소</div>
+        <div><strong>우드래그</strong> — 회전 &nbsp; <strong>스크롤</strong> — 줌</div>
         <div style="margin-top:6px">
-          <kbd>G</kbd> editor &nbsp; <kbd>P</kbd> pause &nbsp; <kbd>C</kbd> clear
+          <kbd>G</kbd> 에디터 &nbsp; <kbd>P</kbd> 일시정지 &nbsp; <kbd>C</kbd> 지우기
         </div>
-        <div><kbd>H</kbd> hide this</div>
-        <div class="hud__help-note">Paused still applies every editor change.</div>
+        <div><kbd>H</kbd> 이 도움말 숨기기</div>
+        <div class="hud__help-note">일시정지 중에도 에디터 변경은 바로 반영됩니다.</div>
       </div>
 
       <div class="hud__abilities">
@@ -65,7 +65,7 @@ export class HUD {
       </div>
 
       <div class="hud__toast" data-toast></div>
-      <div class="hud__paused" data-paused>Paused</div>
+      <div class="hud__paused" data-paused>일시정지됨</div>
     `;
 
     this.cards = new Map();
@@ -95,7 +95,7 @@ export class HUD {
       card.classList.toggle('is-active', key === element);
     }
     const meta = ELEMENT_META[element];
-    if (meta && !options.silent) this.showToast(`${meta.hint} selected`);
+    if (meta && !options.silent) this.showToast(`${meta.hint} 선택됨`);
   }
 
   /** Highlight the slot while a cast is armed. */

@@ -19,7 +19,7 @@ async function boot() {
   } catch (error) {
     console.error('[boot] failed to start', error);
     new LoadingScreen().fail(
-      error?.message ? `Failed to start: ${error.message}` : 'Failed to start — see the console.'
+      error?.message ? `시작 실패: ${error.message}` : '시작 실패 — 콘솔을 확인하세요.'
     );
   }
 }

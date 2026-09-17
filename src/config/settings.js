@@ -1836,22 +1836,22 @@ export const ELEMENTS = ['ice', 'thunder', 'meteor', 'beam', 'snare', 'glacier']
  * between the arrow and the circle; omit it and the ability is a line cast.
  */
 export const ELEMENT_META = {
-  ice: { label: 'Frost Lance', accent: '#5fd0ff', key: 'Q', hint: 'Frost Lance' },
-  thunder: { label: 'Storm Lance', accent: '#7fb4ff', key: 'E', hint: 'Storm Lance' },
-  meteor: { label: 'Cinder Fall', accent: '#ff8a3c', key: 'R', hint: 'Cinder Fall' },
-  beam: { label: 'Nova Beam', accent: '#7ff0ff', key: 'F', hint: 'Nova Beam' },
+  ice: { label: '프로스트 랜스', accent: '#5fd0ff', key: 'Q', hint: '프로스트 랜스' },
+  thunder: { label: '스톰 랜스', accent: '#7fb4ff', key: 'E', hint: '스톰 랜스' },
+  meteor: { label: '신더 폴', accent: '#ff8a3c', key: 'R', hint: '신더 폴' },
+  beam: { label: '노바 빔', accent: '#7ff0ff', key: 'F', hint: '노바 빔' },
   snare: {
-    label: 'Voltaic Snare',
+    label: '볼타이크 스네어',
     accent: '#a98bff',
     key: 'V',
-    hint: 'Voltaic Snare',
+    hint: '볼타이크 스네어',
     cast: CastShape.ZONE
   },
   glacier: {
-    label: 'Glacial Crown',
+    label: '글레이셜 크라운',
     accent: '#8ee8ff',
     key: 'X',
-    hint: 'Glacial Crown',
+    hint: '글레이셜 크라운',
     cast: CastShape.ZONE
   }
 };

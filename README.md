@@ -1,57 +1,46 @@
-# Elemental Sandbox
+# 엘리멘탈 샌드박스
 
-A skillshot VFX sandbox built with **Three.js**, **Vite** and hand-written **GLSL**.
+<p align=center><img width=900 src="docs/screenshot.png"></p>
 
-Five abilities and two ways to aim them. Four are **line casts**: press the key to arm, a
-League-of-Legends style arrow appears on the ground and swings with the mouse, click to fire. The
-fifth is a **far cast**: the arrow is replaced by a circle with a deliberately thick boundary that
-follows the cursor and answers the only question a ground-targeted AoE has to answer before you
-commit — how much space is this going to take.
+라이브 데모 : https://sigco3111.github.io/LinearAbiltyCastingThreeJS/
 
-**Q — Frost Lance.** A fracture front races out along the line while a field of ice crystals
-tears up out of the floor behind it — small and dense at your feet, opening into a wall of blades
-at the far end, with a cluster thrown up around the impact point.
+[![Live](https://img.shields.io/badge/Live-GitHub%20Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white)](https://sigco3111.github.io/LinearAbiltyCastingThreeJS/)
 
-**E — Storm Lance.** A bolt leaves the caster's hand and a bundle of lightning filaments is drawn
-out behind the strike front, holds while it gutters and re-strikes, then blows out. Sparks come
-off it the whole way, the floor underneath takes a branching electric burn and a dark scorch, and
-the far end gets a shell of ionised air.
+**Three.js** · **Vite** · 직접 작성한 **GLSL**로 만든 스킬샷 VFX 샌드박스입니다.
 
-**R — Cinder Fall.** A burning rock is lobbed downrange on an arc, trailing a raymarched wake of
-burning gas and heating up the whole way: the lava seams splitting its surface prise wider and
-brighter as it comes in. It detonates on arrival, throws its own shattered chunks across the floor, and tears the
-ground open into a network of molten cracks that keep glowing while the crater burns out.
+여섯 개의 능력, 두 가지 조준 방식. 네 개는 **라인 시전**입니다. 키를 눌러 무장하면
+리그 오브 레전드 스타일의 화살이 바닥에 나타나 마우스를 따라 움직이고, 클릭하면 발사됩니다.
+두 개는 **원거리 시전**입니다. 화살 대신 의도적으로 두꺼운 경계선을 가진 원이 커서를
+따라다니며, 지점 스킬이 클릭 전에 답해야 하는 단 하나의 질문 — "이게 도대체 얼마나
+넓은 범위야?" — 에 답합니다.
 
-**F — Nova Beam.** The caster winds a ball of light up in both hands, pulling motes in out of the
-air, then lets a column of it out along the line — white-hot core, cyan sheath, gold ribbons
-spiralling around it and shock discs racing down it. It *holds* there, burning into the floor and
-throwing spray back up the beam, before collapsing to a thread and blinking out. The only cast in
-the sandbox that is still happening a second after it landed.
+| 키 | 능력 | 설명 |
+| --- | --- | --- |
+| **Q** | 프로스트 랜스 | 균열 전선이 라인을 따라 질주하고, 그 뒤로 얼음 결정 밭이 바닥에서 솟아오릅니다. 발밑에서는 작고 촘촘하게, 끝으로 갈수록 칼날 벽으로 벌어지며, 충돌 지점 주변에도 결정 무더기가 솟구칩니다. |
+| **E** | 스톰 랜스 | 시전자의 손에서 번개가 나가고, 타격 전선 뒤로 번개 필라멘트 다발이 끌려나와 잠시 유지되다가 꺼지며 재타격합니다. 가는 길 내내 불꽃이 튀고, 밑바닥에는 나뭇가지 모양의 전기 화상과 검은 그을음이 남으며, 끝에는 이온화된 공기 껍질이 맺힙니다. |
+| **R** | 신더 폴 | 불타는 암석을 포물선으로 멀리 던지면, 레에마치된 연소 가스 후류를 끌며 오는 내내 달아오릅니다. 표면을 가르는 용암 틈새가 다가올수록 넓게, 밝게 벌어지다가 도착과 동시에 폭발해 깨진 조각을 바닥에 흩뿌리고, 땅을 녹은 균열 네트워크로 찢어 분화구가 식을 때까지 계속 빛납니다. |
+| **F** | 노바 빔 | 시전자가 양손으로 빛의 구를 감아 올리며 공기 중 미립자를 빨아들인 뒤, 라인을 따라 기둥을 뿜습니다. 백열 중심, 청록 외피, 휘감는 황금 리본, 기둥을 타고 내려가는 충격 디스크. 그 자리에 *버티며* 바닥을 태우고 뒤로 스프레이를 쏘아 올리다가, 실처럼 가늘어지며 깜빡 꺼집니다. 착탄 1초 뒤에도 아직 진행 중인 샌드박스 유일의 시전입니다. |
+| **V** | 볼타이크 스네어 | 원거리 시전. 전류 끈을 바닥에 휙 내던지면, 떨어진 지점에서 고리가 자기 반지름을 넘겨 벌어졌다가 다시 조여듭니다. 가운데에서 보라색 기둥이 치솟고, 덩굴손이 경계까지 기어가고, 가장자리를 아크가 돌며 원반 전체가 탑니다. 재타격하며 공기를 기둥으로 빨아 올리다가 실처럼 붕괴합니다. 클릭 전에 재어 둔 원 그대로 떨어집니다. |
+| **X** | 글레이셜 크라운 | 두 번째 원거리 시전. 범위 안에 얼음 왕관이 피어오릅니다. 다섯 개의 칼날이 고리를 따라 높낮이를 달리 세워지고, 가운데 첨탑이 가장 높이 솟는 실루엣 — 슬롯 아이콘 그대로의 장면이 바닥에 재현됩니다. |
 
-**V — Voltaic Snare.** The far cast. A leash of current is whipped out across the floor, and where
-it lands the ring snaps open past its own radius and pulls back onto it: a violet column tears up
-out of the middle, tendrils crawl outward to the boundary, arcs run around the rim and the whole
-disc burns. It holds there re-striking and hauling the air up into the pillar, then collapses to a
-thread. The circle you measured out before the click is exactly the circle you get.
+## 전부 절차적으로 생성됩니다
 
-Everything you can see is generated. There are no textures, no sprite sheets and no meshes on
-disk except the character: the crystals are procedural geometry, the bolt is a strip of ribbon
-placed entirely by a vertex shader, the meteor is an icosphere cratered and sliced by fracture
-planes on the CPU, the beam is a parametric tube drawn three times at three radii, the snare's
-whole cage is that same ribbon strip threaded along four different parametric paths, the arrow, the
-targeting circle, the rime, the burns and the molten cracks are signed-distance and noise shaders,
-and the mist, sparks, chips and glitter are GPU particles.
+보이는 모든 것은 생성된 것입니다. 캐릭터를 제외하고 디스크에 텍스처도,
+스프라이트 시트도, 메시도 없습니다. 결정은 절차적 지오메트리, 번개는
+버텍스 셰이더가 배치한 리본 스트립, 운석은 CPU에서 균열면으로 쪼개고
+분화구를 낸 icosphere, 빔은 세 가지 반지름으로 세 번 그린 파라메트릭 튜브,
+스네어의 우리 전체는 네 가지 파라메트릭 경로를 따라 꿰맨 바로 그 리본 스트립,
+화살·조준 원·서리·화상·녹은 균열은 부호거리·노이즈 셰이더, 안개·불꽃·파편·반짝이는
+GPU 파티클입니다.
 
-**Every parameter is a live slider** — 938 of them — and they stay live while the simulation is
-paused. That is the point of the project: freeze a frame mid-eruption, mid-strike or mid-burn with
-**P**, then reshape the silhouette, the palette and the timing against a still image.
-
-References for the look: `icecast.jpg`, `thundercast.jpg`, `superbeam.jpg` and
-`electricalboost.jpg`.
+**모든 파라미터가 실시간 슬라이더** — 938개 — 이며, 시뮬레이션이 멈춰 있어도
+계속 살아 있습니다. 이 프로젝트의 요점이 바로 그것입니다. 분출 한가운데,
+타격 한가운데, 연소 한가운데를 **P**로 얼린 뒤, 정지 화면을 보며 실루엣과
+팔레트와 타이밍을 다듬으세요.
 
 ---
 
-## Quick start
+## 빠른 시작
 
 ```bash
 npm install
@@ -61,7 +50,7 @@ npm install
 npm run dev
 ```
 
-Then open the URL Vite prints (default <http://127.0.0.1:5173>).
+Vite가 출력한 URL을 여세요 (기본 <http://127.0.0.1:5173>).
 
 ```bash
 npm run build
@@ -71,519 +60,200 @@ npm run build
 npm run preview
 ```
 
-### Assets
+### 에셋
 
-Six binary assets are served from `public/` and loaded automatically at boot:
+여섯 개의 바이너리 에셋이 `public/`에서 제공되며 부팅 시 자동으로 로드됩니다.
 
-| File | Purpose |
+| 파일 | 용도 |
 | --- | --- |
-| `public/models/Idle.fbx` | Rigged character **and** its idle animation clip |
-| `public/models/diffuse.png` | The character's colour map |
-| `public/models/cast1.fbx` | Cast animation |
-| `public/models/cast2.fbx` | Cast animation |
-| `public/models/cast3.fbx` | Cast animation — the default for Frost Lance, Root Snare and Glacier Crown |
-| `public/hdri/spruit_sunrise.hdr` | HDR probe used for image-based lighting and crystal reflections |
+| `public/models/Idle.fbx` | 리그된 캐릭터 **및** 대기 애니메이션 클립 |
+| `public/models/diffuse.png` | 캐릭터 컬러 맵 |
+| `public/models/cast1.fbx` | 캐스트 애니메이션 |
+| `public/models/cast2.fbx` | 캐스트 애니메이션 |
+| `public/models/cast3.fbx` | 캐스트 애니메이션 — 프로스트 랜스·볼타이크 스네어·글레이셜 크라운의 기본값 |
+| `public/hdri/spruit_sunrise.hdr` | 이미지 기반 조명과 결정 반사광에 쓰는 HDR 프로브 |
 
-All four FBX files are Mixamo exports of the same rig, each carrying a skinned mesh plus one
-animation stack. The character comes from the idle file; the cast files are loaded for their clip
-alone, and the duplicate rig that arrives with each one is released the moment its `AnimationClip`
-has been taken. Clips bind to the skeleton by bone name, which is the whole reason an animation
-authored in another file plays here without retargeting.
+네 FBX 파일은 모두 같은 리그의 Mixamo 익스포트로, 스킨드 메시 + 애니메이션
+스택 하나씩을 담고 있습니다. 캐릭터는 idle 파일에서 오고, cast 파일들은
+클립만을 위해 로드되며, 딸려 온 복제 리그는 `AnimationClip`을 떼어내는 즉시
+해제됩니다. 클립이 뼈대 이름으로 바인딩되기에, 다른 파일에서 만든 애니메이션이
+리타게팅 없이 그대로 재생됩니다.
 
-The rig ships no material, so `diffuse.png` is loaded beside it and assigned as the colour map when
-the imported materials are converted to PBR — an FBX that *does* carry an embedded texture keeps its
-own, since that map is authored against its own UVs.
+리그에 머티리얼이 없으므로 `diffuse.png`를 옆에 로드해 임포트된 머티리얼을
+PBR로 변환할 때 컬러 맵으로 붙입니다. 내장 텍스처를 가진 FBX는 자기 UV에
+맞춰 만든 맵이므로 그쪽을 유지합니다.
 
-Every ability picks the clip it throws — `castAnim` in its settings block, a dropdown under **The
-cast** in its editor folder. Out of the box slots 1, 5 and 6 — Frost Lance, Root Snare and Glacier
-Crown — throw `cast3`, and the other three throw `cast1`. The clip is a one-shot laid over
-the looping idle, with `character.castBlendIn` / `castBlendOut` as the two edges of that overlap.
+각 능력은 자기가 던질 클립을 직접 고릅니다 — 설정 블록의 `castAnim`,
+에디터 폴더의 **시전** 아래 드롭다운. 기본값으로 1·5·6번 슬롯(프로스트 랜스,
+볼타이크 스네어, 글레이셜 크라운)은 `cast3`, 나머지 셋은 `cast1`을 던집니다.
+클립은 반복되는 idle 위에 얹는 원샷이며, 그 겹침의 양쪽 경계가
+`character.castBlendIn` / `character.castBlendOut` 입니다.
 
-The HDR is loaded as image-based lighting and as the reflection source for the ice — it is never
-shown as a visible sky. The stage keeps its flat dark backdrop.
+HDR은 이미지 기반 조명과 얼음 반사광으로만 쓰이고, 보이는 하늘로는 절대
+나오지 않습니다. 무대는 평평하고 어두운 배경을 유지합니다.
 
 ---
 
-## Controls
+## 조작법
 
-| Input | Action |
+| 입력 | 동작 |
 | --- | --- |
-| **Q** (or **1**) | Arm Frost Lance — press again to put it away |
-| **E** (or **2**) | Arm Storm Lance — press again to put it away |
-| **R** (or **3**) | Arm Cinder Fall — press again to put it away |
-| **F** (or **4**) | Arm Nova Beam — press again to put it away |
-| **V** (or **5**) | Arm Voltaic Snare — the far cast, aimed with a circle |
-| **Move the mouse** | Swing the aim arrow, or move the far-cast circle |
-| **Left click** | Cast along the arrow, or drop the circle where it is |
-| **Esc** / **right click** | Cancel an armed cast |
-| **Right mouse + drag** | Orbit the camera |
-| **Scroll** | Zoom |
-| **G** | Show/hide the VFX editor |
-| **P** | Pause / resume — *the editor keeps applying* |
-| **C** | Clear all active effects |
-| **H** | Hide the controls panel |
+| **Q** (또는 **1**) | 프로스트 랜스 무장 — 다시 누르면 해제 |
+| **E** (또는 **2**) | 스톰 랜스 무장 — 다시 누르면 해제 |
+| **R** (또는 **3**) | 신더 폴 무장 — 다시 누르면 해제 |
+| **F** (또는 **4**) | 노바 빔 무장 — 다시 누르면 해제 |
+| **V** (또는 **5**) | 볼타이크 스네어 무장 — 원으로 조준하는 원거리 시전 |
+| **X** (또는 **6**) | 글레이셜 크라운 무장 — 원으로 조준하는 원거리 시전 |
+| **마우스 이동** | 조준 화살을 휘두르거나 원거리 원을 이동 |
+| **좌클릭** | 화살 방향으로 시전, 또는 원을 그 자리에 떨굼 |
+| **Esc** / **우클릭** | 무장한 시전 취소 |
+| **우클릭 + 드래그** | 카메라 회전 |
+| **스크롤** | 줌 |
+| **G** | VFX 에디터 표시/숨기기 |
+| **P** | 일시정지 / 재개 — *에디터는 계속 반영됩니다* |
+| **C** | 활성 이펙트 전부 지우기 |
+| **H** | 조작 패널 숨기기 |
 
-`range` and `minRange` are per ability, so the indicator's reach changes with the slot you have
-selected. Aiming closer than the selected ability's `minRange` tints it red and refuses the cast;
-set `minRange` to 0 if you would rather cast at your own feet, which is what the Snare ships with —
-a trap you cannot drop on yourself is missing half its uses. Cooldowns are per ability too, so
-spending one slot never locks the other out.
+`range`와 `minRange`는 능력별 값이라, 선택한 슬롯이 바뀌면 표시기의
+사거리도 바뀝니다. 선택한 능력의 `minRange`보다 가깝게 조준하면 표시기가
+빨갛게 물들고 시전을 거부합니다. 자기 발밑에 떨구고 싶으면 `minRange`를
+0으로 두세요. 스네어가 그렇게 출고됩니다 — 자기에게 못 떨구는 덫은
+쓸모가 반쪽입니다. 재사용 대기시간도 능력별이라, 한 슬롯을 썼다고 다른
+슬롯이 잠기지 않습니다.
 
 ---
 
-## Project layout
+## 프로젝트 구조
 
 ```
 src/
-  abilities/      Ability base class (the travelling front), IceAbility, ThunderAbility,
-                  MeteorAbility, BeamAbility, SnareAbility, pooling manager
-  animation/      FBX character loading, AnimationMixer, the per-ability cast clips,
-                  the procedural cast lunge
-  assets/         Procedural crystal and asteroid geometry, the bolt ribbon strip,
-                  the beam tube and its shock discs
-  config/         settings.js — the single source of truth for every parameter
-  core/           App, Renderer, CameraRig, Time, Layers, shared frame uniforms
-  effects/        Aim arrow, far-cast circle, ground decals, fissures, bursts,
-                  light pool, shake, flash
-  input/          InputManager (events) and AimController (both targeting shapes)
-  loaders/        AssetLoader with a shared LoadingManager
+  abilities/      능력 베이스 클래스(움직이는 전선), IceAbility, ThunderAbility,
+                  MeteorAbility, BeamAbility, SnareAbility, 풀링 매니저
+  animation/      FBX 캐릭터 로딩, AnimationMixer, 능력별 캐스트 클립,
+                  절차적 캐스트 돌진
+  assets/         절차적 결정·소행성 지오메트리, 번개 리본 스트립,
+                  빔 튜브와 충격 디스크
+  config/         settings.js — 모든 파라미터의 단일 진실 공급원
+  core/           App, Renderer, CameraRig, Time, Layers, 공유 프레임 유니폼
+  effects/        조준 화살, 원거리 원, 바닥 데칼, 균열, 폭발,
+                  라이트 풀, 흔들림, 섬광
+  input/          InputManager(이벤트)와 AimController(두 가지 조준 형태)
+  loaders/        공유 LoadingManager를 쓰는 AssetLoader
   materials/      IceMaterial, LightningMaterial, MeteorMaterial,
                   VolumetricFireMaterial, BeamMaterial, SnareMaterial
-  particles/      GPU particle system + engine and rate emitters
-  postprocessing/ Composer pipeline, grade shader, distortion shader
-  shaders/lib/    Shared GLSL: noise library, common helpers
-  ui/             HUD, lil-gui editor, preset manager, styles
-  utils/          Maths, colour cache, pooling, disposal, shader patching
-  world/          Environment (stage lighting), floor, dust, contact shadows
-  archive/        The retired four-element sandbox — see archive/README.md
+  particles/      GPU 파티클 시스템 + 엔진과 방출기
+  postprocessing/ Composer 파이프라인, 그레이드 셰이더, 왜곡 셰이더
+  shaders/lib/    공유 GLSL: 노이즈 라이브러리, 공용 헬퍼
+  ui/             HUD, lil-gui 에디터, 프리셋 매니저, 스타일
+  utils/          수학, 색상 캐시, 풀링, 해제, 셰이더 패치
+  world/          Environment(무대 조명), 바닥, 먼지, 접촉 그림자
+  archive/        은퇴한 4원소 샌드박스 — archive/README.md 참조
 ```
 
 ---
 
-## How it fits together
+## 동작 원리
 
-### Settings are the API
+### 설정이 곧 API입니다
 
-`src/config/settings.js` holds every tweakable value. Nothing else owns that state: shaders,
-particle systems, lights and post passes *read* those objects every frame. That is what makes the
-editor work with no rebuild — moving a slider changes the ice field that is already standing, the
-next cast, the environment and the post stack at once. Preset loading deep-merges *into* the same
-objects so every live binding stays valid.
+`src/config/settings.js`가 조정 가능한 모든 값을 담고 있습니다. 다른 무엇도
+그 상태를 소유하지 않습니다. 셰이더·파티클 시스템·조명·포스트 패스는 매 프레임
+그 객체들을 *읽기만* 합니다. 그래서 에디터가 리빌드 없이 동작합니다. 슬라이더를
+움직이면 이미 서 있는 얼음 밭도, 다음 시전도, 환경도, 포스트 스택도 한 번에
+바뀝니다. 프리셋 로딩은 같은 객체들에 *깊게 병합*되므로 살아 있는 바인딩이
+하나도 깨지지 않습니다.
 
 ```js
 import { settings } from './config/settings.js';
-settings.ice.height = 7;          // visible on the next frame, even mid-cast
-settings.thunder.jitter = 1.2;    // re-kinks a bolt that is already in the air
-settings.global.timeScale = 0.1;  // slow the whole cast to a crawl
+settings.ice.height = 7;          // 다음 프레임에 보임, 시전 한가운데라도
+settings.thunder.jitter = 1.2;    // 이미 날아가는 번개를 다시 꺾음
+settings.global.timeScale = 0.1;  // 시전 전체를 느리게 기어가게
 ```
 
-Ability blocks are keyed by their id in `ELEMENTS`, and the shared systems that need to know
-"which ability is the player holding" — the aim controller, the cooldowns, the HUD — look it up as
-`settings[element]`. The four fields they rely on being present are `range`, `minRange`, `speed`
-and `cooldown`; a far cast adds a fifth, `zoneRadius`. Everything else in a block is that ability's
-own business.
+능력 블록은 `ELEMENTS`의 id로 키잉되며, "플레이어가 지금 들고 있는 능력이
+뭔지" 알아야 하는 공유 시스템 — 조준 컨트롤러, 재사용 대기시간, HUD — 은
+`settings[element]`로 조회합니다. 반드시 있어야 하는 네 필드는 `range`,
+`minRange`, `speed`, `cooldown`이며, 원거리 시전은 다섯 번째 `zoneRadius`를
+더합니다. 블록의 나머지는 그 능력의 사정입니다.
 
-### The rule that makes "edit while paused" work
+### "일시정지 중 편집"이 성립하는 규칙
 
-A spike record in `IceAbility` stores **only what the dice decided**: a position *fraction* along
-the line, a signed lateral *fraction*, and a handful of unitless jitters. Not one metre, radian or
-second is captured when the cast starts. Every dimension is resolved against `settings.ice` inside
-the update loop, which runs on a zero-length frame too.
+`IceAbility`의 스파이크 레코드는 **주사위가 정한 것만** 저장합니다. 라인을
+따른 위치 *비율*, 부호 있는 좌우 *비율*, 단위 없는 지터 몇 개. 시전이 시작될 때
+단 하나의 미터·라디안·초도 확정하지 않습니다. 모든 치수는 업데이트 루프 안에서
+`settings.ice`를 기준으로 해소되며, 그 루프는 길이가 0인 프레임에도 돕니다.
 
-So dragging `height` re-grows a field that is already standing; dragging `lean` re-tilts it;
-dragging `clumping` re-packs it toward the centre line. The only values a record *does* capture
-are timestamps — the moment its own eruption was triggered. Those are events, not dimensions.
+그래서 `height`를 드래그하면 이미 서 있는 밭이 다시 자라고, `lean`을 드래그하면
+다시 기울고, `clumping`을 드래그하면 중심선 쪽으로 다시 모입니다. 레코드가
+*확정하는* 유일한 값은 타임스탬프 — 자기 분출이 촉발된 순간. 그건 사건이지
+치수가 아닙니다.
 
-The four *shape* controls (`facets`, `taper`, `roughness`, `bend`) cannot be expressed as a
-per-instance transform, so they are baked into the geometry instead — and a six-sided crystal is
-just 60 triangles, cheap enough to regenerate outright rather than approximate in a vertex shader.
-`IceAbility#_syncGeometry` hashes those four values and rebuilds the three crystal meshes when the
-hash changes, which is what keeps them live sliders rather than restart-required constants.
-
-### Aiming
-
-`AimController` raycasts the pointer onto the ground plane **every frame**, not only on mouse
-move, so orbiting the camera with a cast armed swings the indicator under a stationary cursor. It
-clamps the distance into `[minRange, range]`, tracks a 0..1 reveal envelope, and emits a single
-`cast` event carrying an origin, a unit direction and a distance — which is exactly the signature
-`Ability#spawn` takes. It decides nothing about what the cast does.
-
-It runs on **real** time rather than the scaled simulation delta, so the indicator keeps animating
-while the sandbox is paused.
-
-There are two indicators and one controller. Which one is drawn comes from
-`ELEMENT_META[element].cast` — `CastShape.LINE` or `CastShape.ZONE` — and that is the *only* thing
-the two shapes disagree about. Arming, clamping, validating, revealing and firing are shared, and
-both end in the same three-argument `cast` event, because from the targeting side a far cast is a
-line cast you only care about the far end of. That is why zone targeting needed no change in
-`Ability`, `AbilityManager` or `App`: `SnareAbility` reads its centre as `pointAt(1)` and works
-outward from there.
-
-### The far-cast circle
-
-`ZoneIndicator` is the arrow's opposite number, and it is built out of the same two ideas: metres,
-and no textures.
-
-The **footprint** is one quad whose fragment shader remaps UV into metres from the target, so the
-boundary stays 0.34 m thick whether the circle is 2 m or 8 m across. The band is deliberately the
-heaviest mark on screen — it is the whole message — and it is split about the nominal radius by
-`boundaryBias` rather than centred on it, so its *outer* lip stays honest about where the effect
-ends. Inside there is a rim-weighted wash, contour rings travelling outward, warped filaments and a
-reticle whose downrange arm is longer, because the quad carries the caster's yaw and that arm is
-therefore the heading.
-
-The **reach ring** at the caster is the bolt's ribbon strip bent into a circle: `(t, side)` in,
-world position out. A quad big enough to hold a 20 m range would be 40 m across and shade a
-screenful of discarded fragments for one thin line.
-
-The circle **snaps out past its radius and settles back** when the cast is armed, and the trap does
-the same thing when it lands. A circle that grows linearly reads as a UI element; one that
-overshoots reads as something the caster did.
-
-### The arrow is one SDF
-
-`AimIndicator` is a single ground quad. Its fragment shader remaps UV into **metres measured from
-the caster**, so every control in `settings.aim` is a real measurement — the shaft stays 0.42 m
-wide whether the cast is 3 m or 15 m long.
-
-The silhouette is a rounded union of a box (the shaft) and iq's exact triangle SDF (the head);
-the cheap half-plane intersection leaves visible corner artefacts on a wedge this shallow. From
-that one distance field the shader derives the outline, the rim-weighted interior wash, the
-chevrons (a phase skewed by `|x|`, which turns flat bands into arrowheads pointing the way the
-cast does), the frost noise and voronoi plates, the ring at the caster's feet, the range cap arc,
-a six-fold frost rosette pinned to the impact point, and the sweep-out when the ability is armed.
-
-### The ice
-
-`materials/IceMaterial.js` patches a `MeshStandardMaterial` rather than replacing it, so the
-crystals cast and receive the stage's real shadows and pick up the HDR probe. The stylisation is
-injected on top:
-
-- **Thickness tint** — a facet seen head-on has the longest path through the crystal, so it
-  darkens toward `colorDeep`; grazing edges stay pale. This is the term that makes the field read
-  as a solid you can see *into* rather than as blue plastic.
-- **Internal fracture** — ridged noise sampled in **world** space, so the crack planes stay a fixed
-  physical size whether a spike is ankle-high or three metres tall, and neighbouring crystals look
-  quarried from the same block.
-- **Feather frost and rime** — fbm sampled in **local** space (0..1 up the crystal), so the milky
-  veining and the frost creeping up from the base follow each spike's own axis however it is
-  scaled or leaned.
-- **Glint** — a hard-thresholded high-frequency field scrolling in world space, biased toward
-  grazing angles, which is where real ice catches.
-- **Birth flash** — a per-instance attribute the ability drives from 1 to 0 over `birthFade`, so a
-  crystal is lit from within for the moment it erupts.
-
-Three `InstancedMesh`es share one material. Three rather than one because the *facets* differ, not
-just the proportions — per-instance scaling alone cannot buy that silhouette variety, and three
-draw calls is a cheap price.
-
-### The lightning
-
-`ThunderAbility` takes the "no dimensions on the CPU" rule further than the ice does: there is no
-path object at all. The bolt is one `InstancedBufferGeometry` — a flat ladder of quads in
-*parameter* space, where each vertex carries only `(t, side)`: how far along the bolt it is, and
-which edge of the ribbon it is on. One instance is one filament. `materials/LightningMaterial.js`
-turns that pair into a world position every frame, so a single strip serves a bolt of any length,
-any shape and any width.
-
-Three things stack to make the shape:
-
-- **the axis** — a straight line from the hand to the impact point, bowed by `sag`. The only part
-  that knows where the cast is pointing.
-- **the fan** — a constant per-filament offset in the plane perpendicular to the axis, opening
-  from `spreadNear` at the hand to `spread` at the target and rolling around the axis with
-  `twist`. This is what separates one filament from the next.
-- **the kinks** — octaves of *linearly* interpolated value noise. Linear on purpose: smoothstep
-  would round the corners off, and the corners are the entire reason it reads as lightning rather
-  than as a wobbly tube.
-
-The ribbon is turned to face the camera by crossing the local tangent with the view vector, which
-is why the bolt keeps its apparent thickness from any angle without ever being a screen-space
-line. It is drawn twice — a wide soft halo underneath and the hot core on top — because drawing
-the glow as real ribbon rather than leaving it to bloom is what keeps it *attached* to every kink.
-
-Two clocks run the flicker. `restrike` snaps every filament onto a new shape N times a second,
-and `crawl` slides the kinks continuously in between; together they stop a held bolt from looking
-like a static ribbon. A cast captures exactly one number — a seed, so two casts do not draw the
-identical bolt — and resolves every metre, radian and second against `settings.thunder` each
-frame. That is why dragging `jitter` re-kinks a bolt that is already in the air.
-
-The ground burns are worth a note as a thing *not* to do. The first version sampled the filament
-field on `atan(y, x)`, which hands every radius along a given bearing the same value and draws
-dead-straight spokes out of the centre — a firework, not a burn. Sampling the same noise in the
-plane and warping the lookup is what lets the filaments meander and fork.
-
-### The beam
-
-The Nova Beam shares the bolt's rule — no dimensions on the CPU — and reaches the opposite look
-with it. Where the bolt's whole charm is that its noise is *piecewise-linear* and keeps its
-corners, every noise term in the beam is smooth, stretched hard along the flow and crawling
-downrange. A beam that kinks is a bolt.
-
-It is a real tube rather than a camera-facing ribbon, because a column this thick has to *have* a
-cross-section: the silhouette must bow correctly when you orbit it, the far wall must add through
-the near one, and the shock discs have to hug it. `createBeamTubeGeometry` is the ribbon strip one
-dimension richer — every vertex carries `(t, a)`, how far along the barrel it is and how far around
-— and `materials/BeamMaterial.js` turns that pair into a world position each frame.
-
-That one tube is drawn three times, and the trick is in how the three are weighted:
-
-- **halo** — widest, nothing but a rim term. The atmosphere the beam is shoving out of the way.
-- **sheath** — rim-weighted, so it reads as *hollow* and its silhouette edges are its brightest part.
-- **core** — narrow, and weighted the **opposite** way: brightest where the view ray runs down the
-  barrel and its path through the tube is longest.
-
-Rim-weighted outside, axis-weighted inside, both faces adding: that is a volume integral, cheaply,
-and the inversion is the entire reason the middle reads as a solid rod of light instead of as a lit
-pipe. Widen `coreWidth` or push `coreFill` up and the three layers collapse into one white tube —
-the cyan sheath and the gold coils are only legible because the core leaves them room.
-
-Two more instanced passes put structure on it. The **coils** are the bolt's ribbon strip bent into a
-helix, camera-facing and warm on purpose — the colour split is what stops them dissolving into the
-sheath. The **shock discs** are an instanced annulus whose phase is `fract(index / count + time ×
-speed)`, so the train is a pure function of the clock and there is no queue on the CPU. Both place
-themselves against the same `beamRadius()` the tube uses, which is why all five stay welded together
-when the profile is dragged.
-
-The beam is also the one ability with a **fourth beat**. The other three run travel → impact →
-fade; this one puts a wind-up in front of that, and it needed nothing from the base class:
-`advance()` simply refuses to let the front leave the hand until the orb is up to power, so `IMPACT`
-becomes the burn and the phase machine is untouched. The far end therefore has an impact that keeps
-happening — spray thrown back up the line, pressure shells shed off the burning point, dust and
-shockwave rings pushed across the floor, all rate-throttled through the same fractional-rate emitter
-the particles use so every rate is a live slider.
-
-### The snare
-
-The Voltaic Snare is the first ability built around a *point* instead of a line, and the thing that
-holds it together is that `zoneRadius` is read in exactly one place per consumer and nowhere is it
-copied: the indicator measures it out, the tendrils end on it, the rim arcs run along it, the field
-burns it and the column's throat and flare are fractions of it. Drag it and all five move together,
-mid-cast, with the clock stopped.
-
-The whole cage — the whip that plants it, the pillar, the tendrils and the rim arcs — is **one
-instanced ribbon strip**, the same one the bolt and the beam's coils are drawn on. A filament's
-*role* is decided in the vertex shader by testing its instance index against four live counts, and
-the role picks which parametric path it is threaded along:
-
-- **leash** — a sagging line from the hand to the travelling tip, dropped onto the floor.
-- **column** — a twisting climb whose radius opens from `throat` to `columnSpread`.
-- **tendril** — a meander running outward, its veer a per-filament constant rather than noise, so
-  it curves the way a discharge that has committed to a direction does.
-- **rim** — an arc travelling around the boundary, hopping over it at mid-span.
-
-Every offset then lives in a frame taken by finite difference off that path, which is what lets one
-kink function serve a vertical pillar and a filament crawling flat across the floor. The two
-ground-hugging roles damp the vertical component of that offset and clamp above the floor — a kink
-with a free `y` buries half of every tendril and the effect reads as a broken dotted line. Setting
-a count to zero retires the role outright, which is how the leash disappears on the frame the ring
-takes over. Two draw calls cover all four roles, however many filaments are in the air.
-
-The **field** is a quad rather than a pooled decal for one reason: a decal captures its radius when
-it spawns, and this circle has to re-scale under `zoneRadius` while it is standing. Its veins are
-sampled in the plane and domain warped — the same lesson the bolt's ground burns taught, and for
-the same reason.
-
-The one thing worth stealing for the next far cast is the **snap**: the ring opens on
-`Easing.outCubic` multiplied by a bump that peaks late and dies at exactly 1, so it overshoots its
-radius and pulls back onto it, and the pillar climbs on the same clock 1.7× slower. The ground goes
-first, then the air breaks down over it.
-
-### Adding another ability
-
-1. Add a settings block in `config/settings.js` and an entry in `ELEMENTS` / `ELEMENT_META`.
-2. Subclass `Ability` and implement `createShaders`, `createParticles`, `onTravel`, `onImpact`,
-   `onFade`.
-3. Register the class in `abilities/AbilityManager.js`.
-4. Add an editor folder in `ui/Editor.js`, and a sigil in `ui/glyphs.js`.
-5. Bind a key in `input/InputManager.js` — it emits `ability` with the 0-based slot index, which
-   `App` maps through `ELEMENTS`.
-
-To make it a **far cast** instead of a line cast, add two things and nothing else: `cast:
-CastShape.ZONE` in its `ELEMENT_META` entry, and a `zoneRadius` in its settings block. The circle
-indicator, the reach ring, the snap-out and the whole targeting loop come for free, and the ability
-reads its centre as `pointAt(1)`.
-
-Everything else — pooling, the travelling front, the local frame, lights, phases, per-ability
-cooldowns, the aim reach and camera framing — is inherited or driven off `ELEMENTS`. The HUD
-builds its slots from that array, so a new ability appears in the bar on its own.
-
-### Particles
-
-`particles/ParticleSystem.js` is a GPU-simulated, instanced-quad system. Motion (velocity, gravity,
-analytic drag, curl turbulence, vortex swirl), size-over-lifetime, the colour gradient and alpha
-fade are all evaluated in the shader from per-instance attributes; the CPU only ever writes spawn
-data, and only the slots that changed are uploaded. Particles live in a ring buffer, so spamming
-the ability recycles slots instead of allocating. Silhouettes (soft, smoke, streak, leaf, chip,
-ring) are procedural — there are no sprite textures anywhere in the project.
-
-Frost Lance uses three systems: **mist** (non-additive, so the fog genuinely occludes and gives the
-field depth), **shards** (lit chips under gravity) and **glitter** (additive, negative gravity — the
-rising plume that is the signature of the reference frame).
-
-Storm Lance uses four: **sparks** (velocity-stretched streaks under gravity), **motes** (the slow
-ionised drift around the bolt), **smoke** (non-additive haze off the scorched floor) and **debris**
-(lit chips). Its sparks are emitted from several points along the bolt each frame rather than one:
-a beam sheds along its whole length, and a single origin makes every batch read as a starburst.
-
-Nova Beam uses four as well, and works one of them twice: its **motes** are the intake spiralling
-*into* the orb while it charges and the drift shed off the column once it is firing — the same glow,
-thrown the other way. Its **sparks** are thrown radially off the barrel and then dragged downrange
-by `sparkForward`, which is the read that says "pressure"; the bolt's fall instead, and that one
-difference does a lot of the work of keeping the two abilities apart.
-
-### Render pipeline
-
-Per frame:
-
-1. **Depth prepass** — the opaque world into a half-res packed-depth buffer. Every VFX shader
-   samples it for soft intersections, so nothing cuts a hard line into the ground. The crystals sit
-   on `LAYER.WORLD`, so mist and glitter fade softly against them.
-2. **Distortion pass** — meshes on the distortion layer write screen-space UV offsets into a second
-   half-res buffer. Nothing writes to it in the current build; the pass is kept because it is the
-   hook a refraction effect would use.
-3. **Composer** — scene → refraction warp → bloom → tone map (ACES) → grade.
-
-The grade pass folds chromatic aberration, lift/gain/contrast/saturation/temperature, vignette,
-film grain and the impact flash into one resample.
-
-Shadows come from a single directional light whose orthographic shadow camera is re-centred on the
-character each frame and fitted to a 52 m box at 4096² (~1.3 cm/texel). The `three/addons` CSM
-module was tried first and removed: it replaces three's `lights_fragment_begin` chunk *globally*,
-so any material not explicitly registered with it silently loses all directional lighting.
-
-Contact shadows are a real render: the character's depth is captured from below into a 256²
-target, blurred twice and projected onto the ground.
+네 가지 *형태* 컨트롤(`facets`, `taper`, `roughness`, `bend`)은 인스턴스별
+변환으로 표현할 수 없어 지오메트리에 직접 구워집니다. 육각 결정 하나가 고작
+60개 삼각형이라, 버텍스 셰이더로 근사하느니 통째로 다시 만드는 편이 쌉니다.
 
 ---
 
-## Editor and presets
+## VFX 에디터와 프리셋
 
-Press **G** for the panel. Folders: Presets, Global, Aim indicator, Far-cast circle, Frost Lance,
-Storm Lance, Cinder Fall, Nova Beam, Voltaic Snare, Environment, Post processing, Camera,
-Character. Every folder starts collapsed — there are enough controls here that one open section
-pushes the rest off the screen.
+**G**를 누르면 실시간 VFX 에디터가 열립니다. 모든 컨트롤은 `config/settings.js`
+필드에 직접 바인딩됩니다. `onChange` 핸들러가 필요 없습니다. 슬라이더를
+움직이면 이미 서 있는 얼음 밭도, 날아가는 번개도, 다음 시전도, 환경도,
+포스트 스택도 동시에 바뀌고, 리빌드도 셰이더 재컴파일도 없습니다.
 
-- **Global** multipliers scale everything at once (speed, glow, noise, particles, lights, impact
-  intensity, camera shake, time scale…).
-- **Aim indicator** — the arrow's silhouette in metres, its outline and fill, the chevrons and
-  frost, and the rings and rosette.
-- **Far-cast circle** (40 controls) — the boundary band, the interior, the ticks, sweep and
-  reticle, the reach ring, and the snap-out. Shared by every far cast, so it is filed with the
-  targeting rather than with any one ability.
-- **Frost Lance** (113 controls, 25 of them colours) — the cast, the footprint, the silhouette,
-  the crystal itself, the eruption timing, the ice material, the frost on the ground,
-  mist/chips/glitter, the impact and the dynamic light.
-- **Storm Lance** (123 controls, 34 of them colours) — the cast, where the bolt leaves the hand,
-  the bundle, one filament, the ribbon, flicker and restrike, the bolt's colour, the burns on the
-  ground, sparks/motes/smoke/debris, the muzzle and impact, and the dynamic light.
-- **Nova Beam** (176 controls) — the cast, where it leaves the hands, the column, the core/sheath/
-  halo stack, the surface and its flow, the beam's colour, the coils, the shock discs, the charge
-  and its intake, what the floor does, sparks/motes/steam/debris, release/impact/burn, and the two
-  dynamic lights.
-- **Voltaic Snare** (174 controls, 33 of them colours) — the cast and its footprint, the leash, the
-  column, the tendrils, the rim arcs, the shared filament shape and flicker, the ribbon and its
-  colour, the field on the floor, the burns, sparks/updraft/smoke/debris, throw/snap/hold, and the
-  dynamic light.
-- **Presets** save to `localStorage`, and can be duplicated, deleted, exported to JSON, imported
-  from JSON, or reset to the shipped defaults.
+시뮬레이션을 일시정지(**P**)한 상태에서도 성립합니다. 그게 요점입니다. 얼어붙은
+분출의 실루엣과 얼어붙은 번개의 형태야말로 다듬을 가치가 있는 것이고, 두 능력은
+길이가 0인 프레임에 이 값들로부터 자신을 다시 해소합니다.
 
-Every ability exposes **every** colour it draws with, and none is derived from another: the crystal
-palette, the bolt palette, the beam's four layers and its coils and discs, the ground marks, the
-impact shells, the shockwave rings, the screen flashes, and a four-stop lifetime gradient
-(`birth → early → late → death`) for each particle system. Tinting the fog without touching the ice,
-or cooling the sparks to orange while the filaments stay blue, is a picker away.
+| 폴더 | 내용 |
+| --- | --- |
+| 프리셋 | 저장·불러오기·복제·삭제, JSON 내보내기/가져오기, 기본값 초기화 |
+| 전체 설정 | 시간 배율·시전 속도·발광·노이즈·파티클·조명·흔들림 전역 배율 |
+| ➤ 조준 표시기 | 화살 외형(미터)·렌더링·에너지 줄무늬·서리 결정·바닥 고리 |
+| ◎ 원거리 시전 원 | 경계선 두께·내부·눈금·소인·조준선·사거리 고리 |
+| ❄ 프로스트 랜스 외 5종 | 시전·실루엣·재질·바닥·파티클·충돌·조명 능력별 전절 |
+| 환경 | 주광·림 라이트·배경·안개·먼지·무대 바닥 |
+| 후처리 | 노출·블룸·대비·채도·온도·비네팅·색수차·필름 그레인 |
+| 카메라 | 거리·시야각·피치·추적 감쇠·자동 프레이밍 |
+| 캐릭터 | 재생 속도·캐스트 블렌드·조준 회전·돌진 |
 
-Presets are plain snapshots of the settings tree, so an exported file is readable and editable by
-hand.
-
-Knobs worth knowing about, because they reshape their ability the most:
-
-- `ice.heightCurve` — how late the ramp climbs; raise it and the field stays low until it explodes
-  at the target. `ice.frontBias` below 1 crowds the crystals toward the impact point.
-- `thunder.jitter` and `thunder.jitterScale` — how violently the bolt kinks, and how often.
-  `thunder.strands` and `thunder.spread` set how wide the bundle reads, and `thunder.restrike`
-  how hard it strobes. Those five carry the character of the effect.
-- `beam.radius` and `beam.flare` — how heavy the column reads and how hard it opens out where it
-  lands. `beam.charge` and `beam.lifetime` are the wind-up and the hold, which are what make this
-  ability feel unlike the other three, and `beam.coreWidth` / `beam.coreFill` decide whether the
-  layers stay separable or blow out to white.
-- `snare.zoneRadius` — the one number the whole far cast is built on. It resizes the targeting
-  circle, the tendrils, the rim arcs, the burnt field and the pillar's throat together, live.
-  After that, `snare.snapTime` and `snare.height` carry the moment it opens, and `snare.tendrils` /
-  `snare.rimArcs` / `snare.strands` decide how much of that footprint is actually lit.
-- `zone.boundary` and `zone.snap` — how thick the far-cast circle's edge reads, and how hard it
-  overshoots on the way out. Between them they decide whether the indicator feels like a UI overlay
-  or like something the caster is doing.
+프리셋은 설정 트리의 스냅샷 그대로이며 localStorage에 저장되고 JSON으로
+내보낼 수 있습니다. 로딩은 살아 있는 설정 객체에 병합되므로, 셰이더와
+파티클 시스템이 쥔 바인딩이 전부 유효하게 남습니다 — 그래서 시전 한가운데에
+프리셋을 갈아타도 됩니다.
 
 ---
 
-## Performance notes
+## 성능 노트
 
-- Abilities, decals, bursts and particles are pooled, per type. Twelve casts in a row build at most
-  **four** instances of an ability and then stop allocating.
-- The whole crystal field is three draw calls regardless of crystal count; the cap is 288.
-- A whole bolt is **two** draw calls regardless of filament count; the cap is 24 filaments at 72
-  samples each. Nothing about the path touches the CPU, so `strands` is nearly free.
-- A whole snare — leash, pillar, tendrils and rim arcs — is **two** draw calls plus one for the
-  field, regardless of how many filaments are in it; the cap is 56 across the four roles. As with
-  the bolt, none of the shape touches the CPU, so raising `tendrils` or `rimArcs` is nearly free.
-  Its targeting circle is two more: one quad and one ring strip.
-- A whole beam is **six** draw calls regardless of how many coils and discs are on it — three tube
-  passes over one shared geometry, plus one instanced draw each for the coils, the discs and the
-  charge orb. As with the bolt, none of the shape touches the CPU, so `coils` and `rings` are
-  nearly free. It takes two of the six dynamic lights (the column and the caster's hands), so four
-  concurrent beams would exhaust the pool; `LightPool.acquire()` returns null and every use of the
-  handle is guarded.
-- The six dynamic point lights are created at boot and parked at zero intensity rather than added
-  and removed — changing the light count forces three to recompile every material.
-- Shadow maps update exactly once per frame even though the scene is rendered several times.
-- `renderer.compileAsync()` runs during boot so the first cast never stutters on shader compile.
-- Pixel ratio is capped at 1.75; the depth and distortion buffers are half resolution.
+- 파티클은 GPU 풀에서 돕니다. HUD 우상단의 파티클·인스턴스·드로콜 수치로
+  병목을 바로 확인할 수 있습니다.
+- 여섯 FBX 중 cast 파일 셋은 클립만 취하고 복제 리그는 즉시 해제됩니다.
+- 셰이더는 부팅 시 전부 미리 컴파일하므로 첫 시전이 버벅이지 않습니다.
+- 일시정지해도 에디터 변경은 다음 프레임에 반영됩니다. 멈춘 장면을 보며
+  다듬는 용도입니다.
 
-Measured on a default cast: 32 draw calls idle, ~69 with a full ice field standing and ~49 with a
-bolt in the air, ~1150 live particles. A snare standing with its cage, field and rim burns is ~45
-draw calls and ~480 live particles, and arming its circle costs two. Four concurrent casts —
-the pool's ceiling, whichever slots they came from — peaks at ~186 draw calls and five of the six
-dynamic lights.
+## 아카이브
 
-Live counters (FPS, live particles, instances, draw calls) are in the top-right of the HUD.
+`src/archive/`는 은퇴한 4원소(불·대지·물·바람) 샌드박스입니다. 현재 여섯 능력과
+겹치지 않는 머티리얼·이펙트만 보관용으로 남았고, 빌드에는 포함되지 않습니다.
+자세한 내역은 `src/archive/README.md`를 보세요.
 
----
+## 알려진 한계
 
-## The archive
+- FBX 스키닝 가중치가 정점당 4개를 넘으면 로더가 나머지를 버리고 경고합니다.
+  (Mixamo 리그 특성 — 보이는 결과에는 영향이 없습니다.)
+- `PCFSoftShadowMap`은 Three.js 최신 버전에서 deprecated라 자동으로
+  `PCFShadowMap`으로 대체됩니다.
+- 소프트웨어 렌더러(헤드리스 캡처 등)에서는 `ReadPixels` GPU stall 경고가
+  나올 수 있습니다. 실제 GPU에서는 발생하지 않습니다.
 
-`src/archive/` holds the previous incarnation of this project: a four-element bending sandbox
-(fire, water, earth, air) cast along a freehand-drawn spline, plus a walk mode that let the avatar
-ride the same stroke. None of it is imported by the live app, so Vite never bundles it.
+## 라이선스
 
-It was retired because this build replaced path drawing with a linear skillshot, which removed the
-input every one of those systems was built on. The raymarched flame and water surfaces in
-particular are worth mining. See `src/archive/README.md` for what is in there and how to restore a
-piece of it.
+MIT — 원본 저장소의 LICENSE를 따릅니다.
 
----
+## 원본 출처
 
-## Known rough edges
-
-- Crystals are drawn with `transparent: true` and `depthWrite: true`. That is the right trade for
-  near-opaque ice and it keeps the field from sorting through itself, but at low `ice.opacity` the
-  sorting artefacts between overlapping spikes become visible.
-- The eruption front is a straight line on a flat floor. Both assumptions are baked in — the ground
-  is a single plane at y = 0, and the aim raycast targets that plane.
-- The distortion pass runs with nothing writing to it. It costs a half-res clear per frame.
-- The impact cluster is placed radially around the end point, so at very short cast distances it
-  can overlap the band behind it more than it should.
-- The far cast inherits the flat-floor assumption twice over: the circle is drawn on a single quad
-  at `y = 0`, and the snare's tendrils and rim arcs are placed against that same plane. Neither
-  would drape over a step.
-- Both the targeting circle and the snare's field are additive, so the footprint brightens the
-  floor rather than shading it. On a pale floor the boundary would need a non-additive pass under
-  it to stay readable.
-
----
-
-## Licence
-
-Code is provided as-is for the purposes of this project. The bundled HDR probe and the character
-FBX retain their original licences.
+원본: [achrefelouafi/LinearAbiltyCastingThreeJS](https://github.com/achrefelouafi/LinearAbiltyCastingThreeJS) (MIT).
+이 저장소는 해당 프로젝트의 한글화 버전입니다. 능력 이름·HUD·VFX 에디터
+라벨 1,300여 개를 한국어로 옮겼으며, 게임 로직·식별자·에셋은 원본 그대로입니다.

@@ -62,9 +62,9 @@ export class PresetManager {
 
   duplicate(name) {
     if (!this.has(name)) return null;
-    let copy = `${name} copy`;
+    let copy = `${name} 사본`;
     let index = 2;
-    while (this.has(copy)) copy = `${name} copy ${index++}`;
+    while (this.has(copy)) copy = `${name} 사본 ${index++}`;
     this.presets[copy] = structuredClone(this.presets[name]);
     this._write();
     return copy;
